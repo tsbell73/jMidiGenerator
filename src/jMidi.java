@@ -12,12 +12,16 @@ public class jMidi {
         int[] pattern = new int[12];
         Scanner scan = new Scanner(System.in);
         int pitchin, i = 0;
-        while(i< 11){
-        pitchin = scan.nextInt();
-        pattern[i] = pitchin;
+        while(i<= 11){
+            System.out.println("Next Pitch:");
+            pattern[i] = scan.nextInt();
+            Note n = new Note(pattern[i]+60, .25);
+            p.addNote(n);
+            i++;
         }   
+        Write.midi(p, "circle.mid");
     }
-    public class melodyFunction{
+   /* public class melodyFunction{
         
         public void fnGen(){
         Phrase phrase = new Phrase();
@@ -41,5 +45,5 @@ public class jMidi {
         // Play.midi(phrase);
         Write.midi(phrase, "midifile.mid");
         }
-    }
+    }*/
 }
